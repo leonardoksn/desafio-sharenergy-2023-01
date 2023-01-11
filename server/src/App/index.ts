@@ -8,6 +8,7 @@ import cors from 'cors'
 import { personRoutes } from '../routes/personRoutes'
 import { collaboratorRoutes } from '../routes/colaboratorRoutes'
 import { catRoute } from '../routes/catRoute'
+import { tokenRoute } from '../routes/verifyTokenRoute'
 const app: Express = express()
 dotenv.config()
 
@@ -20,6 +21,7 @@ app.use(express.json({ limit: '20mb' }))
 app.use('/person', personRoutes)
 app.use('/collaborator', collaboratorRoutes)
 app.use('/http/cat', catRoute)
+app.use(tokenRoute)
 
 app.use(
     (error: Error, request: Request, response: Response, next: NextFunction) => {

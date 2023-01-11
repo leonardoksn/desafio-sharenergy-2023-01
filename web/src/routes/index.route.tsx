@@ -7,9 +7,17 @@ import { Layout } from '../components/Layout'
 import { LoginPage } from '../pages/LoginPage'
 import { ClientList } from '../pages/ClientList'
 import { RequireAuth } from './RequireAuth'
+import { Box } from '@chakra-ui/react'
+import { LoadingPage } from '../pages/LoadingPage'
+
+
 
 export const RouteIndex = () => {
     const { isAuth } = useAuth()
+
+    if (isAuth === undefined) {
+        return <LoadingPage />
+    }
     return (
         <Routes>
             {

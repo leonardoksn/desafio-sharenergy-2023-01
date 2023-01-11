@@ -6,6 +6,7 @@ const fakeAuthProvider = {
     const [err, result] = await api.post('/collaborator/auth/login', user)
       .then(res => [null, res?.data?.token || null])
       .catch((err) => [err, null])
+      
     callback({ err, result })
   },
   signout(callback: VoidFunction) {

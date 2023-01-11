@@ -5,7 +5,7 @@ import {
 
 } from '@tanstack/react-table'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { DataTable } from '../components/DataTableUsers'
 import { getUsers } from '../api/getUsers'
 import { useAuth } from '../context/auth'
@@ -110,7 +110,12 @@ export const Crud = () => {
         }
     })
 
+    useEffect(() => {
 
+        return () => {
+            console.log('morreu')
+        }
+    }, [])
     const editUser = (event: React.FormEvent<HTMLFormElement>, id: string) => {
         event.preventDefault();
         let formData = new FormData(event.currentTarget);
